@@ -1,0 +1,332 @@
+$WAVE4
+$RESOLUTION 1000
+$ENDTIME 200000
+I 1 "e#9#std_logicc9 UX01ZWLH-"
+$S 1 1 reset
+$S 2 1 clock
+$S 3 1 hold
+$S 4 1 halt
+I 2 "a#12#internal_bus1 ricd7 0 e#9#std_logicc9 UX01ZWLH-"
+$BUS S 5 2 8 ir
+$SC 6-+7
+$S +1 1 n
+$S +1 1 z
+$S +1 1 c
+$S +1 1 v
+I 3 "e#15#CleoStates_types15 sidle fetch0 fetch1 fetch2 sop1a sop1b sop2a sop2b sop3a sop3b salu op2jp1 op2jp2 sjump sjsr "
+$S +1 3 "UUT/EA"
+I 4 "r#14#microinstrucao7 u a#6#opcode1 ricd2 0 e#9#std_logicc9 UX01ZWLH-w a#6#opcode1 ricd2 0 e#9#std_logicc9 UX01ZWLH-r a#6#opcode1 ricd2 0 e#9#std_logicc9 UX01ZWLH-lnz e#9#std_logicc9 UX01ZWLH-lcv e#9#std_logicc9 UX01ZWLH-ce e#9#std_logicc9 UX01ZWLH-rw e#9#std_logicc9 UX01ZWLH-"
+I 5 "a#6#opcode1 ricd2 0 e#9#std_logicc9 UX01ZWLH-"
+$BUS S +1 4 7 uins
+$CHILD +1 0 19
+$CHILD +1 0 19
+$CHILD +5 1 19
+$CHILD +5 1 19
+$CHILD +9 2 19
+$CHILD +9 2 19
+$SC +2-+2 +2-+2 +2-+6
+P 0 1-35 CS "0"
+P 0 15 32 Color "0"
+P 0 4 20 Color "12582976"
+P 0 3-35/16 Color "32960"
+P 0 14 28 Color "4210943"
+P 0 5 24 Color "8405120"
+P 0 2 17 34 Color "8405184"
+P 0 1 16 33 Color "8421440"
+$WAVES 1
+=0 T 0
+=1 D 0 1
+=2 T 5k
+$VALUES
+V 3
+U
+1
+0
+$END
+$WAVES 2
+*0
+*1
+R 2 10 =3 T 10k =4 D 10k 1
+$VALUES
+V 1
+U
+R 2 10 1 0
+V 1
+1
+$END
+$WAVES 3
+*0
+*1
+$VALUES
+V 2
+U
+0
+$END
+$WAVES 4
+*0
+=5 D 0 2
+$VALUES
+V 2
+U
+0
+$END
+$WAVES 6
+*0
+*1
+$VALUES
+V 2
+U
+0
+$END
+$WAVES 7
+*0
+*1
+=6 T 60k
+$VALUES
+V 3
+U
+0
+1
+$END
+$WAVES 8
+*0
+*1
+$VALUES
+V 2
+U
+0
+$END
+$WAVES 9
+*0
+*1
+$VALUES
+V 2
+U
+0
+$END
+$WAVES +1
+*0
+*1
+$VALUES
+V 2
+U
+0
+$END
+$WAVES +1
+*0
+*1
+$VALUES
+V 2
+U
+0
+$END
+$WAVES +1
+*0
+*1
+$VALUES
+V 2
+U
+0
+$END
+$WAVES +1
+*0
+*1
+$VALUES
+V 2
+U
+0
+$END
+$WAVES +1
+*0
+*1
+$VALUES
+V 2
+U
+0
+$END
+$WAVES +1
+*0
+*1
+$VALUES
+V 2
+U
+0
+$END
+$WAVES +1
+*0
+*1
+$VALUES
+V 2
+U
+0
+$END
+$WAVES +1
+*0
+*1
+$VALUES
+V 2
+U
+0
+$END
+$WAVES +4
+*0
+*1
+R 2 3 =7 D 40k 3 =8 D 20k 3
+$VALUES
+V 1
+U
+R 2 3 1 0
+V 1
+1
+$END
+$WAVES +1
+*0
+*1
+R 1 2 *7
+R 2 2 *8 *7
+$VALUES
+V 1
+U
+R 2 3 1 0
+V 1
+1
+$END
+$WAVES +1
+*0
+*1
+=9 D 60k 3
+R 2 2 *8 *7
+*8
+$VALUES
+V 1
+U
+R 2 3 1 0
+V 1
+1
+$END
+$WAVES +2
+*0
+*1
+R 1 3 *8
+R 1 2 *7
+R 1 2 *8
+$VALUES
+V 1
+U
+R 2 4 1 0
+$END
+$WAVES +1
+*0
+*1
+R 1 2 *8
+*7
+R 1 2 *8
+R 1 2 *7
+$VALUES
+V 1
+U
+R 2 4 1 0
+$END
+$WAVES +1
+*0
+*1
+*8
+$VALUES
+V 3
+U
+1
+0
+$END
+$WAVES +2
+*0
+*1
+*8
+$VALUES
+V 3
+U
+1
+0
+$END
+$WAVES +1
+*0
+*1
+*9
+R 2 2 *8 *7
+*8
+$VALUES
+V 1
+U
+R 2 3 1 0
+V 1
+1
+$END
+$WAVES +1
+*0
+*1
+*8
+$VALUES
+V 3
+U
+0
+1
+$END
+$WAVES +1
+*0
+*1
+=10 D 120k 3
+*8
+$VALUES
+V 4
+U
+0
+1
+0
+$END
+$WAVES +1
+*0
+*1
+$VALUES
+V 2
+U
+0
+$END
+$WAVES +1
+*0
+*1
+R 2 3 *7 *8
+$VALUES
+V 1
+U
+R 2 3 0 1
+V 1
+0
+$END
+$WAVES +1
+*0
+*1
+R 2 3 *7 *8
+$VALUES
+V 1
+U
+R 2 3 0 1
+V 1
+0
+$END
+$WAVES 18
+*0
+R 1 10 =11 D 20k 2
+$VALUES
+V 11
+sidle
+fetch0
+fetch1
+fetch2
+sop1a
+sop1b
+salu
+fetch0
+fetch1
+fetch2
+sop1a
+$END
+$ENDWAVE

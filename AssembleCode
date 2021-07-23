@@ -1,0 +1,36 @@
+.code
+ORG #00h
+INIT: LDA end1,I  ; Carrega elemento do vetor
+      ADD #0FH    ; Adiciona a constante
+      STA end1,I  ; Salva no vetor
+      LDA end1    ; Carrega o Endereço de memória onde se encontra o registro
+      ADD #01H    ; Soma 1
+      STA end1    ; Salva nova posição
+      LDA end2    ; Carrega Contador
+      ADD #0FFH   ; Adiciona -1
+      STA end2    ; Salva contador
+      JZ  FIM
+FIM:  HLT
+
+IRQ_TRATADOR:
+    LDA #FFH;
+    ADD #0FFH;
+    JZ SYSCALL_1,R;                              
+    ADD #0FFH;
+    JZ SYSCALL_2,R;
+    ADD #0FAH;
+    RTS;
+    SYSCALL_1: RTS;
+    SYSCALL_2: RTS;
+                                               
+.endcode
+
+.data
+      vet1: DB #01H
+            DB #02H
+            DB #03H
+            DB #04H
+            DB #05H                                                
+      end1: DB vet1
+      end2: DB #05H
+.enddata                        

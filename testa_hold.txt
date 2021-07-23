@@ -1,0 +1,13 @@
+FF 00  ; TESTE DO SINAL HOLD
+FF 00  ; NEY CALAZANS  - 30/07/2004
+FF 00  ; ATENÇÃO - Linhas com formatação distinta para os 5 primeiros caracteres
+FF 00  ;  resultam em erros em tempo de execução, que não têm, contudo, 
+FF 00  ;  quaisquer conseqüências relevantes
+00 44  ; LDA 50H  (carrega a constante 10H da posição 50H no acumulador)
+01 50	
+02 00  ; NOT (Inverte 10H, obtendo 0EFH no acumulador)
+03 24  ; STA 51H (armazena 0EFH na posição de memória 51H)
+04 51
+05 F0  ; HLT (interrompe execução de instruções, sai-se daqui apenas com reset!)
+50 10  ; REGIÃO DE DADOS
+51 00

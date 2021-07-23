@@ -1,0 +1,17 @@
+Arquivo Leia-me do processador Cleópatra
+
+As versões atuais do processador são:
+	- V2.1 - Processador completo, conforme descrito na documentação Arquitetura Cleópatra V2.1x
+
+	- V2.5 - Processador identico a V2.1, mas com implementação modularizada em VHDL, onde o Bloco
+		de dados possui vários módulos (registrador básico, ALU, registrador de estado, codificadores de leitura e escrita)
+	
+	- V3.0 - Processador que implementa o mesmo conjunto de instruções, mas cuja organização possui 	
+		três diferenças significativas em relação a versões anteriores:
+		1) separação do barramento bidirecional de dados em dois barramentos unidirecionais, para facilitar implementação em hardware.
+		
+		2) Acréscimo do sinal hold à interface externa do processador. Este sinal funciona da seguinte maneira: o sinal de hold pode ser ativado (hold='1') a qualquer momento, para indicar que o processador deve inserir ciclos de espera, suspendendo o processamento. Isto pode acontecer para indicar que o processador está lidando com um acesso a dispositivo lento, em caso de hold ocorrer durante um acesso ao mapa de memória. Se isto ocorrer, o processador passa a inserir ciclos de espera após a primeira borda de subida de clock seguinte à ativação do sinal até que hold seja desativado (hold='0') e a execução continue, a partir da próxima borda de subida do clock.
+		
+		3) A unidade de controle do processador for totalmente reimplementada como uma máquina de estados finitos tradicional, para fazer o todo sintetizável em hardware.
+
+	- V3.1 - Em relação à versão 3.1, houve apenas a mudança do formato do registro que define a ordem dos campos na palavra de microinstrução no package cleo, visando adequar-se à documentação escrita do processador. Pontos selecionados de arquivos foram mudados para considerar esta alteração.

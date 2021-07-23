@@ -1,0 +1,66 @@
+$WAVE4
+$RESOLUTION 1000
+$ENDTIME 20000
+I 1 "e#9#std_logicc9 UX01ZWLH-"
+$S 1 1 reset -1 0 12000000
+$S 2 1 clock -1 0 12000000
+$S 3 1 halt -1 0 12000000
+$S 4 1 ce
+$S 5 1 rw
+I 2 "e#15#CleoStates_types45 sidle fetch0 fetch1 decod nota stai0 stai1 stai2 stai3 stain0 stain1 stain2 stain3 star0 star1 star2 ldai0 ldai1 ldai2 ldad0 ldad1 ldad2 ldad3 ldain0 ldain1 ldain2 ldain3 ldar0 ldar1 ldar2 jmpi0 jmpi1 jmpi2 jmpin0 jmpin1 jmpin2 jmpr0 jmpr1 jmpr2 jc0 jc1 jsr2 jsrr2 rts hlt "
+$S 6 2 "cpu/CU/PS" -1 0 12000000
+I 3 "a#12#internal_bus1 ricd7 0 e#9#std_logicc9 UX01ZWLH-"
+$BUS S 7 3 8 address
+$SC 8-+7
+$BUS S +1 3 8 datain
+$SC +1-+7
+$BUS S +1 3 8 dataout
+$SC +1-+7
+$BUS S +1 3 8 "cpu/dp/pc"
+$SC +1-+7
+$BUS OUT +1 3 8 7 0 ir
+$SC +1-+7
+$BUS S +1 3 8 7 1 md
+$SC +1-+7
+$BUS S +1 3 8 7 0 ac
+$SC +1-+7
+$BUS S +1 3 8 7 0 rs
+$SC +1-+7
+$OUT +1 1 7 0 n
+$OUT +1 1 7 0 z
+$OUT +1 1 7 0 c
+$OUT +1 1 7 0 v
+P 0 1-33 CS "0"
+P 0 +1-82 CS "1"
+P 0 34 80 Color "0"
+P 0 5 61 Color "12582976"
+P 0 4 52 Color "32960"
+P 0 79 Color "4210943"
+P 0 7 70 Color "8405120"
+P 0 1 43 82 Color "8405184"
+P 0 81 Color "8421440"
+$WAVES 1
+=0 D 0 1
+=1 T 5k
+=2 T 5995k
+=3 T 200k
+$VALUES
+R 2 2 1 0
+$END
+$WAVES 2
+*0
+R 2 600 =4 T 10k =5 D 10k 1
+$VALUES
+R 2 600 1 0
+V 1
+1
+$END
+$WAVES 3
+*0
+=6 D 4540k 2
+=7 D 1460k 1
+=8 D 4720k 2
+$VALUES
+R 2 2 0 1
+$END
+$ENDWAVE

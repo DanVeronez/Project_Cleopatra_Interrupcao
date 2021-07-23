@@ -1,0 +1,73 @@
+FF 00  ; TESTE DE QUASE TODAS AS INSTRUCOES DA CLEOPÁTRA
+FF 00  ; FERNANDO MORAES - NEY CALAZANS  - 29/07/2004
+FF 00  ; ATENÇÃO - Linhas com formatação distinta para os 5 primeiros caracteres
+FF 00  ;  resultam em erros em tempo de execução, que não têm, contudo, 
+FF 00  ;  quaisquer conseqüências relevantes
+00 40  ; LDA #6AH (carrega a constante 6AH no acumulador)
+01 6A
+02 44  ; LDA 50H  (carrega a constante 10H da posição 50H no acumulador)
+03 50 
+04 48  ; LDA 51H,I  (na posição 51H há 52H e na 52H há 12H, colocado no acumulador)
+05 51  ; 
+06 4C  ; LDA 70H,R   (PC=8H ao executar + deslocamento 70H dá 78H. Em 78H há 45H) 
+07 70  ; 
+08 50  ; ADD #FFH  (decrementa o 45H no acumulador, resultando 44H neste, e setando c=1)
+09 FF 
+0A 54  ; ADD 53H   (em 53H há 20H, resultando em 64H no acumulador)
+0B 53 
+0C 58  ; ADD 54H,I (em 54H há 55H e em 55H há 06H, resultando em 6AH no acumulador)
+0D 54  ; 
+0E 5C  ; ADD 70H,R (PC=10H ao executar + deslocamento 70H dá 80H. Em 80H há 20H, soma=8AH, setando os flags n e v)
+0F 70  ; 	 
+10 24  ; STA 60H   (grava o valor do acumulador, 8AH, no endereco 60H)
+11 60 
+12 28  ; STA 56h,I (grava o mesmo 8AH no endereco apontado por 56H -> 61H)
+13 56   
+14 2C  ; STA 4FH,R (grava o mesmo 8AH no enderoco 4FH+16H = 65H)
+15 4F
+16 00 ;  NOT  (acumulador recebe a negação de 8AH, 75H)
+17 84 ;  JUMP 20H (Passa a executar código a partir do endereço 20H)
+18 20
+20 88 ; JUMP 57H,I (Passa a executar código a partir do endereço contido na posição de memória 57H, ou seja, 2AH)
+21 57	 
+2A 8C ; JUMP 05,R (Passa a executar código a partir do endereço 2CH+05H=31H)
+2B 05
+31 40  ; LDA #01H  (Carrega acumulador com 01H, setando flags n e z para 0)
+32 01  	
+33 B4  ; JZ 40H (salta se zero direto -	QUANDO VERDADEIRO VAI PARA 40, primeira vez não será)
+34 40
+35 B8  ; JZ 0FFH,I (salta se zero indireto, não salta)
+36 FF
+37 BC  ; JZ 0FFH,R (salta se zero relativo, não salta)
+38 FF
+39 40  ; LDA #00H (Carrega acumulador com 00H, setando flags n e z para 0 e 1 respectivamente)
+3A 00  	
+3B BC  ; JZ 0F6H,R (salta para 3DH + F6H = 33H  ==> ATENCAO: VOLTA e da lá pula para 40H abaixo!)
+3C F6
+40 B8 ;  JZ 5BH,I (salta se zero para posição contida em 5BH, ou seja, 48H)
+41 5B 
+48 C4  ; JSR 0A0H (salta para subrotina em A0H)
+49 A0							   
+4A C8  ; JSR 59H,I (salta para a subrotina apontada por 59H, ou seja, A0H)
+4B 59										   
+4C CC  ; JSR 52H,R (salta para subrotina cujo código está em 4EH + 52H= A0H)
+4D 52  
+4E F0  ; HLT (interrompe execução de instruções, sai-se daqui apenas com reset!)
+50 10  ; INÍCIO DA REGIÃO DE DADOS
+51 52  
+52 12  
+53 20
+54 55
+55 06 
+56 61 
+57 2A  
+5A 2A
+58 5B 
+5B 48
+59 A0 
+78 45 
+80 20  ; FIM DA REGIÃO DE DADOS
+A0 40  ; LDA #50H  (início de exemplo de subrotina, carrega acumulador com 50H)
+A1 50 							
+A2 00  ; NOT     (inverte acumulador que se torna AFH)
+A3 D0  ; RTS	 (retorna para onde subrotina foi chamada)
